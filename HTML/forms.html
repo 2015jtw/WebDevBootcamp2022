@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Form Basics</h1>
+
+    <form action="/tacos">
+
+        <p>
+            <label for="">Enter your username</label>
+            <input type="text" placeholder="username" id="username" name="username">
+        </p>
+
+        <p>
+            <label for="password">Enter your password</label>
+            <input type="password" placeholder="password" id="password" name="password">
+        </p>
+
+        <button>Submit</button>
+
+
+    </form>
+
+
+    <h1>Hijacking Reddit Search Form</h1>
+
+    <form action="https://www.reddit.com/search/">
+        <input type="text" name="q">
+        <button>Submit</button>
+    </form>
+
+
+    <form action="">
+        <p>
+            <label for="amountCheese">Amount of Cheese</label>
+            <input type="range" name="amountCheese" id="amountCheese" min="1" max="8">
+        </p>
+
+        <p>
+            <label for="specialRequests">Any special requests?</label>
+            <textarea name="specialRequests" id="specialRequests" rows="5" placeholder="special requests?"></textarea>
+        </p>
+
+        <button>Submit Form</button>
+    </form>
+
+
+    <h2>Practice Exercise</h2>
+
+
+    <form action="/login">
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="username">
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="password">
+        </div>
+
+        <div>
+            <button>Register</button>
+        </div>
+    </form>
+
+    <h2>Validations Demo</h2>
+
+    <form action="/dummy">
+        <label for="firstName">Enter your First Name</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <p>
+            <label for="username">Enter your Username</label>
+            <input type="text" id="username" name="username" minlength="4" maxlength="20" required>
+        </p>
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>
