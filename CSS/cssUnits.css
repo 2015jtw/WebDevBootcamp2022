@@ -1,0 +1,23 @@
+section {
+    height: 800px;
+    width: 400px;
+    background-color: green;
+}
+
+div {
+    width: 50%;
+    height: 50%;
+    background-color: red;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+article {
+    font-size: 30px;
+}
+
+p {
+    font-size: 0.8em;
+}
