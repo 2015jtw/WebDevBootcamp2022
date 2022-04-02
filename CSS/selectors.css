@@ -1,0 +1,11 @@
+p#dislikes a{
+    color: red;
+}
+
+button:hover {
+    background-color: #9b2226;
+}
+
+p::first-letter{
+    color: blue;
+}
