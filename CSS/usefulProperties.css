@@ -1,0 +1,91 @@
+.transparency {
+    width: 500px;
+    height: 500px;
+    background-color: magenta;
+    margin: 1rem;
+}
+
+#rgba {
+    width: 50%;
+    height: 50%;
+    background-color: rgba(171, 148, 49, 0.784)
+}
+
+#opacity {
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    opacity: 0.6;
+}
+
+#static>div {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+#static #middle {
+    background-color: blue;
+    position: static;
+}
+
+#relative>div {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+#relative #middle {
+    background-color: blue;
+    position: relative;
+    top: 100px;
+    left: 2rem;
+}
+
+#absolute>div {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+#absolute #middle {
+    background-color: blue;
+    position: absolute;
+}
+
+#fixed>div {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+
+#fixed #middle {
+    background-color: blue;
+    position: fixed;
+    top: 0px;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    background-color: green;
+    transition: background-color 1s 2s;
+}
+
+.circle:hover {
+    background-color: cyan;
+    border-radius: 50%;
+}
