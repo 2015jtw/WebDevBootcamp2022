@@ -1,53 +1,60 @@
 // select the score keeper spans
-const player1 = document.querySelector("#player1");
-const player2 = document.querySelector("#player2");
+// const player1 = document.querySelector("#player1");
+// const player2 = document.querySelector("#player2");
 
 // select the select to set the winCondition
 const scoreToWin = document.querySelector("#playTo");
 
 // select the point adder buttons
-const btnPlayer1 = document.querySelector("#btnPlayer1");
-const btnPlayer2 = document.querySelector("#btnPlayer2");
+// const btnPlayer1 = document.querySelector("#btnPlayer1");
+// const btnPlayer2 = document.querySelector("#btnPlayer2");
 const reset = document.querySelector("#reset");
 
 // current score vars, winning score, and isGameOver boolean
-let scoreP1 = 0;
-let scoreP2 = 0;
+// let scoreP1 = 0;
+// let scoreP2 = 0;
 let winCondition = 3;
 let isGameOver = false;
 
-// adding points to player 2 event listener
-btnPlayer1.addEventListener('click', function () {
+// make objects for player 1 and player 2 - refactoring code lots of recycled code
+const p1 = {
+    score: 0,
+    button: document.querySelector("#btnPlayer1"),
+    display: document.querySelector("#player1")
+}
+
+const p2 = {
+    score: 0,
+    button: document.querySelector("#btnPlayer2"),
+    display: document.querySelector("#player2")
+}
+
+// refactored function for updating scorers
+function updateScore(player, opponent) {
     if (!isGameOver) {
-        scoreP1++;
-        if (scoreP1 === winCondition) {
+        player.score++;
+        if (player.score === winCondition) {
             isGameOver = true;
-            player1.classList.add('winner')
-            player2.classList.add('loser');
-            btnPlayer1.disabled = true;
-            btnPlayer2.disabled = true;
+            player.display.classList.add('winner')
+            opponent.display.classList.add('loser');
+            player.button.disabled = true;
+            opponent.button.disabled = true;
 
         }
-        player1.textContent = scoreP1;
+        player.display.textContent = player.score;
 
     }
+}
+
+// adding points to player 2 event listener
+p1.button.addEventListener('click', function () {
+    updateScore(p1, p2);
 
 })
 
 // adding points to player 2 event listener
-btnPlayer2.addEventListener('click', function () {
-    if (!isGameOver) {
-        scoreP2++;
-        if (scoreP2 === winCondition) {
-            isGameOver = true;
-            player2.classList.add('winner')
-            player1.classList.add('loser')
-            btnPlayer1.disabled = true;
-            btnPlayer2.disabled = true;
-        }
-        player2.textContent = scoreP2;
-
-    }
+p2.button.addEventListener('click', function () {
+    updateScore(p2, p1);
 
 })
 
@@ -60,16 +67,31 @@ scoreToWin.addEventListener('change', function () {
 
 // refactor reset into its own function
 function resetFunc() {
-    // reset scores
-    scoreP1 = 0;
-    scoreP2 = 0;
-    player1.textContent = '0';
-    player2.textContent = '0';
+
     isGameOver = false;
 
+    // refactor this by looping through -- imagine if there were 4 players instead DRY
+    for (let p of [p1, p2]) {
+        p.score = 0;
+        p.display.textContent = '0';
+        p.display.classList.remove('winner', 'loser');
+        p.button.disabled = false;
+    }
+
+    // reset scores
+    // p1.score = 0;
+    // p2.score = 0;
+    // p1.display.textContent = '0';
+    // p2.display.textContent = '0';
+
+
     // remove winner and loser css classes
-    player1.classList.remove('winner', 'loser')
-    player2.classList.remove('winner', 'loser');
+    // p1.display.classList.remove('winner', 'loser')
+    // p2.display.classList.remove('winner', 'loser');
+
+    // after resetting, want to un disable buttons
+    // p1.button.disabled = false;
+    // p2.button.disabled = false;
 }
 
 // reset event listener
