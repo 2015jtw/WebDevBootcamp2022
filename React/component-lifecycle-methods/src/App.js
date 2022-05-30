@@ -5,15 +5,17 @@ import './App.css';
 import Timer from './Timer';
 import ZenQuote from './ZenQuote';
 import GithubUserInfo from './GithubUserInfo';
+import Deck from './Deck';
 
 function App() {
   return (
     <div className="App">
       {/* <Timer /> */}
       {/* <ZenQuote /> */}
-      <GithubUserInfo
+      {/* <GithubUserInfo
         username='ozantekin'
-      />
+      /> */}
+      <Deck />
     </div>
   );
 }
