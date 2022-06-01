@@ -6,6 +6,7 @@ import Timer from './Timer';
 import ZenQuote from './ZenQuote';
 import GithubUserInfo from './GithubUserInfo';
 import Deck from './Deck';
+import JokeList from './JokeList';
 
 function App() {
   return (
@@ -15,7 +16,11 @@ function App() {
       {/* <GithubUserInfo
         username='ozantekin'
       /> */}
-      <Deck />
+
+      {/* this Deck Component was a cool card dealer project */}
+      {/* <Deck /> */}
+      <JokeList />
+
     </div>
   );
 }
