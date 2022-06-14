@@ -8,13 +8,25 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Invoices from './Invoices';
 import Expenses from './Expenses';
+import Invoice from './Invoice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />}>
-        <Route path='invoices' element={<Invoices />} />
+        <Route path="invoices" element={<Invoices />}>
+          <Route
+            index
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>Select an invoice</p>
+              </main>
+            }
+          />
+          <Route path=":invoiceId" element={<Invoice />} />
+        </Route>
+
         <Route path='expenses' element={<Expenses />} />
         <Route
           path="*"
