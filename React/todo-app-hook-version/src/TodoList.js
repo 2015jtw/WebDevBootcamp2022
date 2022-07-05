@@ -8,6 +8,9 @@ import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 
+// import components
+import Todo from './Todo';
+
 
 
 export default function TodoList(props) {
@@ -17,9 +20,18 @@ export default function TodoList(props) {
             <List>
                 {/*map over the todos prop to make them into List items  */}
                 {props.todos.map((todo) => (
-                    <ListItem>
-                        <ListItemText>{todo.task}</ListItemText>
-                    </ListItem>
+                    <>
+                        <Todo
+                            editTodo={props.editTodo}
+                            toggleTodo={props.toggleTodo}
+                            deleteTodo={props.deleteTodo}
+                            task={todo.task}
+                            id={todo.id}
+                            key={todo.id}
+                            completed={todo.completed}
+                        />
+                        <Divider />
+                    </>
                 ))}
 
             </List>
