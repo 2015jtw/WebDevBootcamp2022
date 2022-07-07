@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>GET Form</h2>
+
+    <form action="http://localhost:3000/tacos" method="get">
+        <label for="meat">Enter your meat: </label>
+        <input type="text" name="meat" id="name" required>
+        <label for="qty">Enter your quantiity: </label>
+        <input type="number" name="qty" id="name" required>
+        <button>Submit</button>
+    </form>
+
+    <h2>POST Form</h2>
+
+    <form action="http://localhost:3000/tacos" method="post">
+        <label for="meat">Enter your meat: </label>
+        <input type="text" name="meat" id="name" required>
+        <label for="qty">Enter your qty: </label>
+        <input type="text" name="qty" id="name" required>
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>

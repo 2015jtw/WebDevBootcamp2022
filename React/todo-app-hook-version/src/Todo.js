@@ -23,7 +23,7 @@ export default function Todo(props) {
     const [isEditing, toggleEditing] = UseToggleState();
 
     return (
-        <ListItem>
+        <ListItem style={{ height: "64px" }}>
 
             {/* check if task needs to be edited */}
             {isEditing ? <EditTodoForm task={props.task} id={props.id} editTodo={props.editTodo} toggleEditing={toggleEditing} /> :

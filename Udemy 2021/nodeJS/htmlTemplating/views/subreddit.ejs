@@ -1,0 +1,33 @@
+<%- include('head.ejs') %>
+
+<body>
+    <div class="container">
+        <%- include('navbar.ejs') %>
+
+
+        <h1>Broswing the <%= name %> subreddit</h1>
+
+        <p><%= description %> </p>
+
+        <hr>
+
+        <ul>
+            <% for(let post of posts){ %>
+            <li> <%= post.title %> - <b><%= post.author %> </b></li>
+
+            <% if(post.img){ %>
+            <img src="<%= post.img  %> " alt="">
+            <% } %>
+
+            <% } %>
+
+        </ul>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

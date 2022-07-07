@@ -15,27 +15,36 @@ import Todo from './Todo';
 
 export default function TodoList(props) {
 
-    return (
-        <Paper>
-            <List>
-                {/*map over the todos prop to make them into List items  */}
-                {props.todos.map((todo) => (
-                    <>
-                        <Todo
-                            editTodo={props.editTodo}
-                            toggleTodo={props.toggleTodo}
-                            deleteTodo={props.deleteTodo}
-                            task={todo.task}
-                            id={todo.id}
-                            key={todo.id}
-                            completed={todo.completed}
-                        />
-                        <Divider />
-                    </>
-                ))}
+    // conditional to make sure paper is only rendered if there are todos
+    if (props.todos.length)
+        return (
 
-            </List>
-        </Paper>
-    )
+            <Paper>
+                <List>
+                    {/*map over the todos prop to make them into List items  */}
+                    {props.todos.map((todo, i) => (
+                        <>
+                            <Todo
+                                editTodo={props.editTodo}
+                                toggleTodo={props.toggleTodo}
+                                deleteTodo={props.deleteTodo}
+                                task={todo.task}
+                                id={todo.id}
+                                key={todo.id}
+                                completed={todo.completed}
+                            />
+                            {/*  */}
+
+                            {/* dont show divider on the final task */}
+                            {i < props.todos.length - 1 && <Divider />}
+
+                        </>
+                    ))}
+
+                </List>
+            </Paper>
+        );
+
+    return null;
 
 }
