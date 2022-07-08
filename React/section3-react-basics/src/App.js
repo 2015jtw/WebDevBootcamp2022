@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { Component } from 'react';
 
 // import components
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
+import './App.css';
 
 const Monster_API = 'https://jsonplaceholder.typicode.com/users';
 
@@ -20,15 +19,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // here we are fetching the data from the monsters API
     fetch(Monster_API)
+      // taking the response and turning it into JSON
       .then((res) => (res.json()))
+      // setting the monsters state array with the data from monsters API
       .then(users => this.setState(() => {
         return { monsters: users }
       }))
   }
 
+  // function to grab the value of the user's input in the search box - input field
   handleChange = (evt) => {
     const searchField = evt.target.value.toLocaleLowerCase();
+    // set the user's value to the state of searchField
     this.setState(() => {
       return { searchField }
     })
@@ -41,13 +45,13 @@ class App extends Component {
     });
 
     return (
-      <div>
+      <div className='App'>
         <h1>Monsters Rolodex Project</h1>
 
         <SearchBox
           onChangeHandler={this.handleChange}
           placeholder='search monsters'
-          className='search-box'
+          className='monsters-search-box'
         />
 
         <CardList monsters={filteredMonsters} />
